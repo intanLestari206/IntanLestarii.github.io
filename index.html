@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portofolio Intan Lestari</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+
+  <nav>
+    <div class="nav-dalam">
+      <a href="#home" class="nav-logo">Intans</a>
+      <ul class="nav-tautan">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#galeri">Galeri</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <section id="home">
+    <div class="konten">
+
+      <h1 class="home-judul">
+        Halo, saya <span>Intan Lestari</span>,<br>
+        Program Studi Informatika
+      </h1>
+
+      <p class="home-deskripsi">
+        Ini adalah kumpulan foto yang saya ambil dari berbagai media sosial.
+      </p>
+
+      <div class="home-tombol">
+        <a href="#galeri" class="tombol-utama">Lihat Galeri</a>
+        <a href="#contact" class="tombol-sekunder">Hubungi Saya</a>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="pemisah"/>
+
+  
+  <section id="galeri">
+    <div class="konten">
+
+      <div class="section-header">
+        <p class="section-label">Galeri Foto</p>
+        <h2 class="section-judul">Kumpulan Foto Saya</h2>
+      </div>
+
+      <div class="galeri-grid">
+
+        <!-- FOTO 1 -->
+        <div class="kartu-proyek">
+          <img src="gambar.jpg" class="kartu-gambar" alt="foto1">
+        </div>
+
+        <!-- FOTO 2 -->
+        <div class="kartu-proyek">
+          <img src="gambar1.jpg" class="kartu-gambar" alt="foto2">
+        </div>
+
+        <!-- FOTO 3 -->
+        <div class="kartu-proyek">
+          <img src="gambar3.jpg" class="kartu-gambar" alt="foto3">
+        </div>
+
+        <!-- FOTO 4 -->
+        <div class="kartu-proyek">
+          <img src="gambar4.jpg" class="kartu-gambar" alt="foto4">
+        </div>
+
+        <!-- FOTO 5 -->
+        <div class="kartu-proyek">
+          <img src="gambar2.jpg" class="kartu-gambar" alt="foto5">
+        </div>
+
+        <!-- FOTO 6 -->
+        <div class="kartu-proyek">
+          <img src="gambar5.jpg" class="kartu-gambar" alt="foto6">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="pemisah"/>
+
+
+  <section id="contact">
+    <div class="konten">
+      <div class="contact-tengah">
+
+        <div class="section-header">
+          <h2 class="section-judul">Contact</h2>
+        </div>
+
+        <div class="profil-kartu">
+
+          <div class="profil-avatar">IL</div>
+
+          <h3 class="profil-nama">Intan Lestari</h3>
+          <p class="profil-gelar">Mahasiswa Teknik Informatika</p>
+
+          <p class="profil-bio">
+           halow kawan-kawan 
+          </p>
+
+          <hr class="profil-divider"/>
+
+          <div class="sosmed-baris">
+            <a href="https://www.instagram.com/intan_lestri198/" class="sosmed-tombol instagram">Instagram</a>
+            <a href="https://github.com/intanLestari206" class="sosmed-tombol github">GitHub</a>
+            <a href="" class="sosmed-tombol whatsapp">WhatsApp</a>
+            <a href="santahusna01@gmail.com" class="sosmed-tombol email">Email</a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Intan Lestari </p>
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    const navLinks  = document.querySelectorAll('.nav-tautan a');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            navLinks.forEach((link) => {
+              link.style.color = '';
+              if (link.getAttribute('href') === '#' + entry.target.id) {
+                link.style.color = '#2a5cff';
+              }
+            });
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+
+    sections.forEach((sec) => observer.observe(sec));
+  </script>
+
+</body>
+</html>
