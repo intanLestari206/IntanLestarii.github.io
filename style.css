@@ -1,0 +1,495 @@
+/* ================================================
+   style.css — Portofolio
+   Hubungkan ke HTML dengan:
+   <link rel="stylesheet" href="style.css">
+================================================ */
+
+/* ===== VARIABEL WARNA & FONT ===== */
+:root {
+  --hitam:    #111111;
+  --abu-tua:  #444444;
+  --abu:      #888888;
+  --abu-muda: #e8e8e4;
+  --putih:    #f9f9f7;
+  --aksen:    #2a5cff;
+  --aksen-bg: #eef1ff;
+  --font-judul: 'DM Serif Display', serif;
+  --font-teks:  'DM Sans', sans-serif;
+}
+
+/* ===== RESET DASAR ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background-color: var(--putih);
+  color: var(--hitam);
+  font-family: var(--font-teks);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+
+/* ===========================
+   NAVIGASI
+=========================== */
+nav {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  background-color: rgba(249, 249, 247, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--abu-muda);
+  z-index: 100;
+  padding: 0 2rem;
+}
+
+.nav-dalam {
+  max-width: 1000px;
+  margin: 0 auto;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-family: var(--font-judul);
+  font-size: 1.2rem;
+  color: var(--hitam);
+  text-decoration: none;
+}
+
+.nav-tautan {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-tautan a {
+  text-decoration: none;
+  color: var(--abu-tua);
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.nav-tautan a:hover {
+  color: var(--aksen);
+}
+
+
+/* ===========================
+   WRAPPER KONTEN
+=========================== */
+.konten {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+
+/* ===========================
+   SECTION HOME
+=========================== */
+#home {
+  padding-top: 140px;
+  padding-bottom: 120px;
+}
+
+.home-tag {
+  display: inline-block;
+  background-color: var(--aksen-bg);
+  color: var(--aksen);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: 999px;
+  margin-bottom: 1.5rem;
+}
+
+.home-judul {
+  font-family: var(--font-judul);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  line-height: 1.15;
+  max-width: 700px;
+  margin-bottom: 1.5rem;
+}
+
+.home-judul span {
+  font-style: italic;
+  color: var(--aksen);
+}
+
+.home-deskripsi {
+  font-size: 1.05rem;
+  color: var(--abu-tua);
+  max-width: 520px;
+  margin-bottom: 2.5rem;
+}
+
+.home-tombol {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.tombol-utama {
+  background-color: var(--hitam);
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.tombol-utama:hover {
+  background-color: var(--aksen);
+  transform: translateY(-2px);
+}
+
+.tombol-sekunder {
+  background-color: transparent;
+  color: var(--hitam);
+  padding: 12px 28px;
+  border-radius: 999px;
+  border: 1.5px solid var(--abu-muda);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: border-color 0.2s, color 0.2s, transform 0.15s;
+}
+
+.tombol-sekunder:hover {
+  border-color: var(--aksen);
+  color: var(--aksen);
+  transform: translateY(-2px);
+}
+
+/* Garis pemisah antar section */
+.pemisah {
+  border: none;
+  border-top: 1px solid var(--abu-muda);
+}
+
+
+/* ===========================
+   SECTION GALERI
+=========================== */
+#galeri {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.section-header {
+  margin-bottom: 3rem;
+}
+
+.section-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--abu);
+  margin-bottom: 0.6rem;
+}
+
+.section-judul {
+  font-family: var(--font-judul);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  line-height: 1.2;
+}
+
+/* Grid kartu proyek */
+.galeri-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.kartu-proyek {
+  background-color: #fff;
+  border: 1px solid var(--abu-muda);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s;
+  cursor: pointer;
+}
+
+.kartu-proyek:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* Placeholder gambar proyek */
+/* Ganti <div class="kartu-gambar"> dengan <img src="foto.jpg" alt="..."> untuk foto asli */
+.kartu-gambar {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-family: var(--font-judul);
+  font-style: italic;
+}
+
+/* Warna berbeda untuk tiap kartu */
+.warna-1 { background-color: #c9d7f8; color: #2a3a7a; }
+.warna-2 { background-color: #c8ece0; color: #1a5c43; }
+.warna-3 { background-color: #f8d9c9; color: #7a2e1a; }
+.warna-4 { background-color: #e8d4f5; color: #5a2878; }
+.warna-5 { background-color: #fce8b2; color: #7a5200; }
+.warna-6 { background-color: #d4eaf8; color: #1a4a6e; }
+
+.kartu-isi {
+  padding: 1.2rem 1.4rem 1.4rem;
+}
+
+.kartu-kategori {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--aksen);
+  margin-bottom: 0.3rem;
+}
+
+.kartu-judul {
+  font-family: var(--font-judul);
+  font-size: 1.2rem;
+  margin-bottom: 0.4rem;
+}
+
+.kartu-deskripsi {
+  font-size: 0.88rem;
+  color: var(--abu-tua);
+  line-height: 1.6;
+}
+
+
+/* ===========================
+   SECTION CONTACT — Kartu Profil
+=========================== */
+#contact {
+  padding-top: 100px;
+  padding-bottom: 120px;
+}
+
+/* Pusatkan semua isi contact */
+.contact-tengah {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2.5rem;
+}
+
+/* Kartu profil */
+.profil-kartu {
+  background-color: #fff;
+  border: 1px solid var(--abu-muda);
+  border-radius: 28px;
+  padding: 2.5rem 3rem;
+  max-width: 440px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.profil-kartu:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.07);
+}
+
+/* Lingkaran avatar / foto profil */
+/* Untuk pakai foto asli, isi div dengan:
+   <img src="foto.jpg" alt="Foto" style="width:100%;height:100%;object-fit:cover;"> */
+.profil-avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background-color: var(--aksen-bg);
+  border: 3px solid var(--abu-muda);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-judul);
+  font-size: 2rem;
+  color: var(--aksen);
+  overflow: hidden;
+}
+
+.profil-nama {
+  font-family: var(--font-judul);
+  font-size: 1.6rem;
+}
+
+.profil-gelar {
+  font-size: 0.9rem;
+  color: var(--abu);
+  margin-top: -0.5rem;
+}
+
+.profil-bio {
+  font-size: 0.92rem;
+  color: var(--abu-tua);
+  line-height: 1.7;
+  max-width: 300px;
+}
+
+/* Garis tipis pemisah dalam kartu */
+.profil-divider {
+  width: 100%;
+  border: none;
+  border-top: 1px solid var(--abu-muda);
+}
+
+/* Baris tombol sosmed */
+.sosmed-baris {
+  display: flex;
+  gap: 0.7rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Tombol sosmed */
+.sosmed-tombol {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  text-decoration: none;
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--abu-tua);
+  background-color: var(--putih);
+  border: 1.5px solid var(--abu-muda);
+  border-radius: 999px;
+  padding: 8px 16px;
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
+}
+
+.sosmed-tombol:hover {
+  transform: translateY(-2px);
+}
+
+/* Warna hover unik tiap platform */
+.sosmed-tombol.instagram:hover {
+  background-color: #fce8f3;
+  border-color: #e1306c;
+  color: #e1306c;
+}
+
+.sosmed-tombol.github:hover {
+  background-color: #f0f0f0;
+  border-color: #333;
+  color: #111;
+}
+
+.sosmed-tombol.linkedin:hover {
+  background-color: #e8f0fe;
+  border-color: #0a66c2;
+  color: #0a66c2;
+}
+
+.sosmed-tombol.email:hover {
+  background-color: var(--aksen-bg);
+  border-color: var(--aksen);
+  color: var(--aksen);
+}
+
+.sosmed-tombol.whatsapp:hover {
+  background-color: #e8f8ef;
+  border-color: #25d366;
+  color: #128c4a;
+}
+
+/* Ikon SVG kecil dalam tombol */
+.sosmed-ikon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+
+/* ===========================
+   FOOTER
+=========================== */
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.85rem;
+  color: var(--abu);
+  border-top: 1px solid var(--abu-muda);
+}
+
+/* ===== SOSIAL MEDIA BUTTON ===== */
+.sosmed-baris {
+  display: flex;
+  gap: 0.7rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.sosmed-tombol {
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--abu-tua);
+  background-color: var(--putih);
+  border: 1.5px solid var(--abu-muda);
+  border-radius: 999px;
+  padding: 8px 16px;
+  transition: 0.2s;
+}
+
+.sosmed-tombol:hover {
+  transform: translateY(-2px);
+}
+
+/* WARNA HOVER */
+.instagram:hover {
+  background-color: #fce8f3;
+  color: #e1306c;
+}
+
+.github:hover {
+  background-color: #f0f0f0;
+  color: #111;
+}
+
+.linkedin:hover {
+  background-color: #e8f0fe;
+  color: #0a66c2;
+}
+
+.whatsapp:hover {
+  background-color: #e8f8ef;
+  color: #25d366;
+}
+
+.email:hover {
+  background-color: var(--aksen-bg);
+  color: var(--aksen);
+}
+/* ===========================
+   RESPONSIF (layar kecil / HP)
+=========================== */
+@media (max-width: 600px) {
+  .nav-tautan {
+    gap: 1.2rem;
+  }
+
+  #home {
+    padding-top: 110px;
+    padding-bottom: 80px;
+  }
+
+  .profil-kartu {
+    padding: 2rem 1.5rem;
+  }
+}
